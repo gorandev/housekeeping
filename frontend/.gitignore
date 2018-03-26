@@ -17,10 +17,3 @@
 /yarn-error.log
 
 .byebug_history
-
-/api/tmp/
-/api/log/
-/frontend/log/
-/frontend/tmp/
-
-/tmp/
