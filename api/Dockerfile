@@ -4,5 +4,5 @@ RUN mkdir /housekeeping
 WORKDIR /housekeeping
 COPY Gemfile /housekeeping/Gemfile
 COPY Gemfile.lock /housekeeping/Gemfile.lock
-RUN bundle install
+RUN env NOKOGIRI_USE_SYSTEM_LIBRARIES=true bundle install
 COPY . /housekeeping
