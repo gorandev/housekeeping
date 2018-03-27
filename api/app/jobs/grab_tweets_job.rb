@@ -28,5 +28,7 @@ class GrabTweetsJob < ApplicationJob
         end
       end
     end
+
+    GrabTweetsJob.set(wait: 1.minute).perform_later
   end
 end
