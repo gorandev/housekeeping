@@ -37,7 +37,7 @@ RSpec.describe "GET tweets for an existing topic", :type => :request do
       )
     end.sort_by do |t|
       t[:posted_on]
-    end.to_json
+    end.reverse.to_json
 
     get '/api/v1/tweets?topic=boardgames'
     expect(response.body).to eq(expected)

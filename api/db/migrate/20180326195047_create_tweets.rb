@@ -7,8 +7,10 @@ class CreateTweets < ActiveRecord::Migration[5.1]
       t.integer :retweets
       t.integer :favs
       t.datetime :posted_on
+      t.integer :twitter_id, :limit => 8
 
       t.timestamps
     end
+    add_index :tweets, :twitter_id, unique: true
   end
 end

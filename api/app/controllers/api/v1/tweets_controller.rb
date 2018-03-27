@@ -5,6 +5,6 @@ class Api::V1::TweetsController < ApplicationController
       head :no_content and return
     end
 
-    render json: Tweet.where(:topic => topic).order(:posted_on).all
+    render json: Tweet.eager_load(:topic).where(:topic => topic).order(posted_on: :desc).all
   end
 end

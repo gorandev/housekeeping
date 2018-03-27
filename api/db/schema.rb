@@ -28,9 +28,11 @@ ActiveRecord::Schema.define(version: 20180326195047) do
     t.integer "retweets"
     t.integer "favs"
     t.datetime "posted_on"
+    t.bigint "twitter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["topic_id"], name: "index_tweets_on_topic_id"
+    t.index ["twitter_id"], name: "index_tweets_on_twitter_id", unique: true
   end
 
   add_foreign_key "tweets", "topics"
