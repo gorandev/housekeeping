@@ -36,8 +36,8 @@ function merge(received_tweets) {
   }
   for (var i = 0; i < received_tweets.length; i++) {
     var tweet = received_tweets[i];
-    if (!tweets[$('#topic').val()][tweet.twitter_id]) {
-      tweets[$('#topic').val()][tweet.twitter_id] = tweet;
+    if (!tweets[$('#topic').val()][tweet.twitterid]) {
+      tweets[$('#topic').val()][tweet.twitterid] = tweet;
     }
   }
 }

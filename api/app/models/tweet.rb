@@ -9,7 +9,7 @@ class Tweet < ApplicationRecord
       retweets: retweets,
       favs: favs,
       posted_on: posted_on,
-      twitter_id: twitter_id
+      twitterid: twitterid
     }
   end
 end

@@ -11,7 +11,8 @@ RSpec.describe "GET tweets for an existing topic", :type => :request do
         :body => 'What a great game',
         :retweets => 202,
         :favs => 58,
-        :posted_on => DateTime.new(2018,3,15,12,25)
+        :posted_on => DateTime.new(2018,3,15,12,25),
+        :twitterid => 28
       },
       {
         :topic => topic,
@@ -19,7 +20,8 @@ RSpec.describe "GET tweets for an existing topic", :type => :request do
         :body => 'Check out my stuff',
         :retweets => 467,
         :favs => 89,
-        :posted_on => DateTime.new(2018,3,14,10,05)
+        :posted_on => DateTime.new(2018,3,14,10,05),
+        :twitterid => 99
       }
     ]
     @tweets.each do |t|

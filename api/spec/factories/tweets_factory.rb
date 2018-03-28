@@ -10,5 +10,6 @@ FactoryBot.define do
     retweets { (rand*1200).to_i + 125 }
     favs { (rand*200).to_i + 50 }
     posted_on { Forgery::Date.date }
+    twitterid { (rand*892109) + 98492 }
   end
 end

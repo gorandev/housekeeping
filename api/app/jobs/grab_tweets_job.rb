@@ -22,7 +22,7 @@ class GrabTweetsJob < ApplicationJob
               :retweets => tweet.retweet_count,
               :favs => tweet.favorite_count,
               :posted_on => tweet.created_at,
-              :twitter_id => tweet.id
+              :twitterid => tweet.id
             )
           rescue ActiveRecord::RecordNotUnique
             # tweet already exists
