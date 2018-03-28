@@ -8,7 +8,7 @@ services:
     volumes:
       - ./api:/housekeeping
     ports:
-      - "3000:3000"
+      - "3030:3000"
     depends_on:
       - db
   db:
@@ -17,10 +17,10 @@ services:
       - ./tmp/db:/var/lib/postgresql/data
   frontend:
     build: ./frontend
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 80 -b '0.0.0.0'"
+    command: ruby housekeeping.rb -p 80 -o 0.0.0.0
     volumes:
       - ./frontend:/housekeeping
     ports:
-      - "80:80"
+      - "8080:80"
     depends_on:
       - api
