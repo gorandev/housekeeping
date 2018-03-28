@@ -1,24 +1,7 @@
-# README
+# HOUSEKEEPING
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an exercise. To install it, just clone the repo and then
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Create env-api file with Twitter auth data. (There's an example on env-api.example.)
+2. `docker-compose run --rm api rails db:create db:migrate db:seed`
+3. `docker-compose up -d frontend`
