@@ -24,7 +24,7 @@ function merge_and_redraw(received_tweets) {
 function askForMore() {
   $.ajax({
     dataType: "json",
-    url: 'http://localhost:3030/api/v1/tweets',
+    url: 'http://' + window.location.hostname + ':3030/api/v1/tweets',
     data: { topic: $('#topic').val() },
     success: merge_and_redraw
   });
