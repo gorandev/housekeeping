@@ -4,13 +4,6 @@ class GrabTweetsJob < ApplicationJob
   queue_as :default
 
   def perform(*args)
-    client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = ENV.fetch('TWITTER_CONSUMER_KEY')
-      config.consumer_secret     = ENV.fetch('TWITTER_CONSUMER_SECRET')
-      config.access_token        = ENV.fetch('TWITTER_ACCESS_TOKEN')
-      config.access_token_secret = ENV.fetch('TWITTER_ACCESS_SECRET')
-    end
-
     begin
       Topic.all.each do |t|
         client.search(t.querytext).take(10).collect do |tweet|
@@ -33,4 +26,6 @@ class GrabTweetsJob < ApplicationJob
       GrabTweetsJob.set(wait: 1.minute).perform_later
     end
   end
+
+  include Api::V1::TweetsController::TwitterAuthentication
 end

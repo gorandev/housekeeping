@@ -1,11 +1,16 @@
 var tweets = {};
 var tweet_template = '';
+var apiEndpoint = 'http://' + window.location.hostname + ':3030/api/v1/tweets';
 
 $(document).ready(function() {
   $('#topicButton').click(function() {
     setupTemplate();
     askForMore();
-  })
+  });
+
+  $('#tweetButton').click(function() {
+    postTweet();
+  });
 });
 
 function setupTemplate() {
@@ -24,10 +29,24 @@ function merge_and_redraw(received_tweets) {
 function askForMore() {
   $.ajax({
     dataType: "json",
-    url: 'http://' + window.location.hostname + ':3030/api/v1/tweets',
+    url: apiEndpoint,
     data: { topic: $('#topic').val() },
     success: merge_and_redraw
   });
+}
+
+function postTweet() {
+  $.ajax({
+    dataType: 'json',
+    type: 'POST',
+    url: apiEndpoint,
+    data: { body: $('#tweetBody').val() },
+    success: afterTweet
+  });
+}
+
+function afterTweet() {
+  alert('Well done!');
 }
 
 function merge(received_tweets) {

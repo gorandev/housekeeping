@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get '/tweets', to: 'tweets#show'
+      post '/tweets', to: 'tweets#post'
     end
   end
 end
